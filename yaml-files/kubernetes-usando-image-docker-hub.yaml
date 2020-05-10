@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata: # Metadados do Pod, informações internad do cluster.
+  name: mongodb-pod # Nome interno do Pod, máximo de 15 caracteres.
+spec: # Definição do comportamento do Pod
+  containers: # Definição do container (Docker ou similar) que será executado dentro do Pod
+    - name: simple-api # Nome do container
+      image: wiltonpolesca/simple-node-api # Container publicado para testes
+      env: # Variáveis de ambiente utilizadas pelo container
+      - PORT: 8080 # Porta interna do container
+      ports:
+        containerPort: 8080
+      resources:
+      - requests: # Mínimo necessário para a execução
+        - cpu: 100m # 100 milicores, 10% da fração de um core
+          memory: 200m
+      - limits: # Máximo permitido para uso
+        - cpu: 200m
+          memory: 500m

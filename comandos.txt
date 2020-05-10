@@ -1,0 +1,23 @@
+# Inciar o minikube
+minikube start
+
+# Finalizar o minikube
+minikube stop
+
+# Obter todos os Pods em execução
+kubectl get Pods
+
+# Criar um pod a partir de um arquivo de deploy (método declarativo)
+kubectl create -f <<file-name.yaml>>
+
+# Excluir um pod
+kubectl delete pod <<pod-name>>
+
+
+# Comandos do docker
+# . Compilar um Dockerfile
+docker build -t <image-name> .
+
+# . Executar uma imagem já criada (disponibilizando o recurso na porta 2345 do host)
+#   PORT=8080 -> Define o valor 8080 para a variável de ambiente PORT esperada pela imagem
+docker run -e PORT=8080 -p 2345:8080 <image-name>
